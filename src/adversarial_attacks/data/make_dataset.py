@@ -69,7 +69,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
     :param n_batches: Number of batches to load
     :return: Preprocessed features and labels
     """
-    assert n_batches <= config["n_batches"]
+    assert n_batches <= config["n_batches"], "Specified batches must be <= 5."
     features = []
     labels = []
 
@@ -93,7 +93,9 @@ def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
     :param path: Output save path.
     :return:
     """
-    assert labels.shape[1] == config["n_labels"]
+    assert (
+        labels.shape[1] == config["n_labels"]
+    ), "Labels must be one-hot-encoded."
     pickle.dump((features, labels), open(path, "wb"))
 
 
