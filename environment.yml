@@ -1,4 +1,4 @@
-name: boilerplate
+name: adversarial-attacks
 channels:
   - defaults
   - conda-forge
