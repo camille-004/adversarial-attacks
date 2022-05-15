@@ -17,3 +17,4 @@ dependencies:
   - nbstripout
   - pre-commit-hooks
   - sphinx
+  - pyyaml
