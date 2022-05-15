@@ -7,5 +7,7 @@ model_weights_dir: model_weights/
 model_log_dir: model_logs/
 
 image_dim: 32
+n_labels: 10
+n_batches: 5
 
 # Add model configs here
