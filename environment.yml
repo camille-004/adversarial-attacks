@@ -1,0 +1,19 @@
+name: boilerplate
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pre-commit
+  - flake8
+  - black
+  - pandas
+  - pytest-cov
+  - scikit-learn
+  - mypy
+  - jupyter_contrib_nbextensions
+  - jupyter
+  - pytest
+  - numpy
+  - nbstripout
+  - pre-commit-hooks
+  - sphinx
