@@ -1,33 +1,15 @@
 import os
 import pickle
 from pathlib import Path
-from typing import Dict, List, Tuple
+from typing import List, Tuple
 
 import click
 import numpy as np
-import yaml  # type: ignore
 
 from src.adversarial_attacks.logger import logger
+from src.adversarial_attacks.utils import config
 
 log = logger.setup_module_level_logger(__name__, file_name="data.log")  # type: ignore
-
-CONFIG_PATH = "../config/"
-
-
-def load_config(f_name: str) -> Dict:
-    """
-    Retrieve configurations from a given file.
-
-    :param f_name: Name of chosen config file.
-    :return: Dictionary of YAML contents
-    """
-    with open(os.path.join(CONFIG_PATH, f_name)) as f:
-        _config = yaml.safe_load(f)
-
-    return _config
-
-
-config = load_config("config.yml")
 
 
 def unpickle_cifar(batch_id: int) -> Tuple[np.ndarray, List]:
