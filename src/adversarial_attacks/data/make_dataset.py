@@ -70,7 +70,7 @@ def one_hot_encode(x: List) -> np.ndarray:
 
 
 def _preprocess_data(
-    _features: np.ndarray, _labels: np.ndarray
+    _features: np.ndarray, _labels: Union[np.ndarray, List]
 ) -> Tuple[np.ndarray, np.ndarray]:
     """
     Preprocess input features and labels.
@@ -90,7 +90,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
     :return: Preprocessed features and labels
     """
     assert n_batches <= config["n_batches"], "Specified batches must be <= 5."
-    features = []
+    features: List[np.ndarray] = []
     labels = []
 
     for i in range(1, n_batches + 1):
@@ -98,7 +98,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
         features.extend(feature_batch)
         labels.extend(label_batch)
 
-    return _preprocess_data(features, labels)
+    return _preprocess_data(np.array(features), np.array(labels))
 
 
 def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
@@ -143,7 +143,7 @@ def main(n_batches: int, output_file_name: str, prepare_test: bool) -> None:
     if prepare_test:
         log.info(f"Saved training data: {out_path}")
         test_features, test_labels = unpickle_cifar("test")
-        test_features, test_labels = _preprocess_data(
+        test_features_prep, test_labels_prep = _preprocess_data(
             test_features, test_labels
         )
         save_data(test_features, labels, out_path + "_test")
