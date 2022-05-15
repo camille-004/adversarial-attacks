@@ -54,7 +54,7 @@ def normalize(x: np.ndarray) -> np.ndarray:
     return (x - np.min(x)) / (x - np.max(x))
 
 
-def one_hot_encode(x: List) -> np.ndarray:
+def one_hot_encode(x: Union[np.ndarray, List]) -> np.ndarray:
     """
     One-hot-encode a list of labels
 
