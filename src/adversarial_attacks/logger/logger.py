@@ -3,7 +3,9 @@ import logging
 import os
 import sys
 
-LOG_DIR_NAME = "logs"
+from src.adversarial_attacks.utils import config
+
+LOG_DIR_NAME = config["log_dir_name"]
 
 
 def setup_module_level_logger(
