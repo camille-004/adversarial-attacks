@@ -1,6 +1,6 @@
 branches:
   only:
-  - main
+  - master
 language: python
 python:
   - "3.9"
