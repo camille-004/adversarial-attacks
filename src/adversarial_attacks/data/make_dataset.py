@@ -6,9 +6,12 @@ from typing import List, Tuple, Union
 
 import click
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 from src.adversarial_attacks.logger import logger
 from src.adversarial_attacks.utils import config
+
+np.seterr(divide="ignore")
 
 log = logger.setup_module_level_logger(__name__, file_name=config["data_log"])  # type: ignore
 
@@ -39,7 +42,7 @@ def unpickle_cifar(batch_id: Union[str, int]) -> Tuple[np.ndarray, List]:
     )
     labels = batch["labels"]
 
-    log.info(f"Unpickled batch {batch_id}")
+    log.info(f"Unpickling batch {batch_id}...")
 
     return features, labels
 
@@ -120,12 +123,23 @@ def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
 @click.argument("n_batches", type=click.INT)
 @click.argument("output_file_name", type=click.Path())
 @click.option(
+    "--prepare_validation",
+    is_flag=True,
+    default=False,
+    help="Whether to prepare validation data.",
+)
+@click.option(
     "--prepare_test",
     is_flag=True,
     default=False,
     help="Whether to prepare test data.",
 )
-def main(n_batches: int, output_file_name: str, prepare_test: bool) -> None:
+def main(
+    n_batches: int,
+    output_file_name: str,
+    prepare_validation: bool,
+    prepare_test: bool,
+) -> None:
     """
     Run data processing scripts to turn raw data into processed data to be saved in processed data folder.
     """
@@ -138,10 +152,19 @@ def main(n_batches: int, output_file_name: str, prepare_test: bool) -> None:
     for f in files:  # Clear all files in processed directory before saving.
         os.remove(f)
 
-    save_data(features, labels, out_path)
+    if prepare_validation:
+        X_train, X_val, y_train, y_val = train_test_split(
+            features, labels, stratify=labels, test_size=0.2
+        )
+        save_data(X_train, y_train, out_path)
+        log.info(f"Saved training data: {out_path}")
+        save_data(X_val, y_val, out_path + "_val")
+        log.info(f"Saved validation data: {out_path}_val")
+    else:
+        save_data(features, labels, out_path)
+        log.info(f"Saved training data: {out_path}")
 
     if prepare_test:
-        log.info(f"Saved training data: {out_path}")
         test_features, test_labels = unpickle_cifar("test")
         test_features_prep, test_labels_prep = _preprocess_data(
             test_features, test_labels
@@ -149,7 +172,7 @@ def main(n_batches: int, output_file_name: str, prepare_test: bool) -> None:
         save_data(test_features, labels, out_path + "_test")
         log.info(f"Saved test data: {out_path + '_test'}")
 
-    log.info(f"Data pickle saved in {config['processed_data_path']}")
+    log.info(f"Data pickle file(s) saved in {config['processed_data_path']}")
 
 
 if __name__ == "__main__":
