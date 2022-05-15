@@ -10,7 +10,7 @@ import numpy as np
 from src.adversarial_attacks.logger import logger
 from src.adversarial_attacks.utils import config
 
-log = logger.setup_module_level_logger(__name__, file_name="data.log")  # type: ignore
+log = logger.setup_module_level_logger(__name__, file_name=config["data_log"])  # type: ignore
 
 
 def unpickle_cifar(batch_id: Union[str, int]) -> Tuple[np.ndarray, List]:
@@ -125,7 +125,7 @@ def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
     default=False,
     help="Whether to prepare test data.",
 )
-def main(n_batches: int, output_file_name: str, test: bool) -> None:
+def main(n_batches: int, output_file_name: str, prepare_test: bool) -> None:
     """
     Run data processing scripts to turn raw data into processed data to be saved in processed data folder.
     """
@@ -140,7 +140,7 @@ def main(n_batches: int, output_file_name: str, test: bool) -> None:
 
     save_data(features, labels, out_path)
 
-    if test:
+    if prepare_test:
         log.info(f"Saved training data: {out_path}")
         test_features, test_labels = unpickle_cifar("test")
         test_features, test_labels = _preprocess_data(
