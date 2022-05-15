@@ -54,7 +54,7 @@ def normalize(x: np.ndarray) -> np.ndarray:
     :param x: NumPy array of input images (each image is [32, 32, 3])
     :return: Normalized image
     """
-    return (x - np.min(x)) / (x - np.max(x))
+    return x / 255
 
 
 def one_hot_encode(x: Union[np.ndarray, List]) -> np.ndarray:
@@ -80,7 +80,7 @@ def _preprocess_data(
 
     :param _features: Input features.
     :param _labels: Input labels.
-    :return: Tuple of preprocessed featurs and labels.
+    :return: Tuple of preprocessed features and labels.
     """
     return normalize(np.array(_features)), one_hot_encode(_labels)
 
@@ -101,6 +101,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
         features.extend(feature_batch)
         labels.extend(label_batch)
 
+    log.info("Normalizing features, one-hot-encoding labels...")
     return _preprocess_data(np.array(features), np.array(labels))
 
 
