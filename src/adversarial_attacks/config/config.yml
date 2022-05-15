@@ -2,6 +2,7 @@ external_data_path: data_blobs/external/
 interim_data_path: data_blobs/interim/
 processed_data_path: data_blobs/processed/
 raw_data_path: data_blobs/raw/cifar-10-batches-py
+test_batch_name: test_batch
 
 model_weights_dir: model_weights/
 model_log_dir: model_logs/

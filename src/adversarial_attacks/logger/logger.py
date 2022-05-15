@@ -20,9 +20,7 @@ def setup_module_level_logger(
     logger = logging.getLogger(module_name)
     logger.setLevel(logging.DEBUG if is_debug else logging.INFO)
 
-    formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-    )
+    formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 
     sh = logging.StreamHandler(sys.stdout)
     sh.setFormatter(formatter)

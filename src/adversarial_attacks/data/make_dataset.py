@@ -1,7 +1,8 @@
+import glob
 import os
 import pickle
 from pathlib import Path
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 import click
 import numpy as np
@@ -12,7 +13,7 @@ from src.adversarial_attacks.utils import config
 log = logger.setup_module_level_logger(__name__, file_name="data.log")  # type: ignore
 
 
-def unpickle_cifar(batch_id: int) -> Tuple[np.ndarray, List]:
+def unpickle_cifar(batch_id: Union[str, int]) -> Tuple[np.ndarray, List]:
     """
     Unpickle a given batch of the CIFAR-10 dataset
 
@@ -20,7 +21,13 @@ def unpickle_cifar(batch_id: int) -> Tuple[np.ndarray, List]:
     :return: NumPy array of features and list of labels of one CIFAR-10 batch
     """
     path = os.path.join(Path(__file__).parents[3], config["raw_data_path"])
-    with open(path + f"/data_batch_{batch_id}", "rb") as f:
+
+    if batch_id == "test":
+        file_name = "/test_batch"
+    else:
+        file_name = f"/data_batch_{batch_id}"
+
+    with open(path + file_name, "rb") as f:
         batch = pickle.load(f, encoding="latin1")
 
     features = (
@@ -62,6 +69,19 @@ def one_hot_encode(x: List) -> np.ndarray:
     return encoded
 
 
+def _preprocess_data(
+    _features: np.ndarray, _labels: np.ndarray
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Preprocess input features and labels.
+
+    :param _features: Input features.
+    :param _labels: Input labels.
+    :return: Tuple of preprocessed featurs and labels.
+    """
+    return normalize(np.array(_features)), one_hot_encode(_labels)
+
+
 def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
     """
     Load n_batches batches, normalize features, and one-hot-encode labels.
@@ -78,10 +98,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
         features.extend(feature_batch)
         labels.extend(label_batch)
 
-    features = normalize(np.array(features))
-    labels = one_hot_encode(labels)
-
-    return features, labels
+    return _preprocess_data(features, labels)
 
 
 def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
@@ -101,18 +118,38 @@ def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
 
 @click.command()
 @click.argument("n_batches", type=click.INT)
-@click.argument("output_filename", type=click.Path())
-def main(batch_id: int, output_filepath: str) -> None:
+@click.argument("output_file_name", type=click.Path())
+@click.option(
+    "--prepare_test",
+    is_flag=True,
+    default=False,
+    help="Whether to prepare test data.",
+)
+def main(n_batches: int, output_file_name: str, test: bool) -> None:
     """
-    Run data processing scripts to turn raw data into processed data to be saved in processed data folder
-
-    :param batch_id: Number of batches to load
-    :param output_filepath: Name of file to save in processed folder
-    :return:
+    Run data processing scripts to turn raw data into processed data to be saved in processed data folder.
     """
     log.info("Making final dataset from raw data")
+    out_path = os.path.join(config["processed_data_path"], output_file_name)
 
-    # Call data processing functions here
+    features, labels = preprocess_data(n_batches)
+
+    files = glob.glob(f"{config['processed_data_path']}*")
+    for f in files:  # Clear all files in processed directory before saving.
+        os.remove(f)
+
+    save_data(features, labels, out_path)
+
+    if test:
+        log.info(f"Saved training data: {out_path}")
+        test_features, test_labels = unpickle_cifar("test")
+        test_features, test_labels = _preprocess_data(
+            test_features, test_labels
+        )
+        save_data(test_features, labels, out_path + "_test")
+        log.info(f"Saved test data: {out_path + '_test'}")
+
+    log.info(f"Data pickle saved in {config['processed_data_path']}")
 
 
 if __name__ == "__main__":
