@@ -7,7 +7,7 @@ test_batch_name: test_batch
 
 # Plotting config
 n_samples: 5
-fig_dims: [15, 15]
+fig_dims: [15, 5]
 
 # Data config
 image_dim: 32

@@ -21,7 +21,7 @@ def plot_images(data_path: str) -> None:
         plt.subplot(1, n_samples, i + 1)
         plt.axis("off")
         plt.imshow(X[random_img[i]])
-        plt.xlabel(config["classes"][np.argmax(X[random_img[i]])])
+        plt.title(config["classes"][np.argmax(y[random_img[i]])], fontsize=20)
 
-    plt.suptitle("Example Images")
+    plt.suptitle("Example Images", fontsize=25)
     plt.show()
