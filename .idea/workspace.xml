@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5939752-a558-4552-8011-4b2ffc30d4a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/adversarial-attacks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/adversarial-attacks.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/visualize.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/visualize.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adversarial_attacks/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/adversarial_attacks/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/visualization/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/visualize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,6 +187,7 @@
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1652599181978" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/adversarial_attacks$load_with_torch.coverage" NAME="load_with_torch Coverage Results" MODIFIED="1652738810726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/adversarial_attacks/data" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$visualize.coverage" NAME="visualize Coverage Results" MODIFIED="1652613333376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$make_dataset.coverage" NAME="make_dataset Coverage Results" MODIFIED="1652595235962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data_science_boilerplate/data" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$make_dataset__1_.coverage" NAME="make_dataset (1) Coverage Results" MODIFIED="1652600167464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/adversarial_attacks/data" />
