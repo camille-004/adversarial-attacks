@@ -2,7 +2,8 @@
 external_data_path: data_blobs/external/
 interim_data_path: data_blobs/interim/
 processed_data_path: data_blobs/processed/
-raw_data_path: data_blobs/raw/cifar-10-batches-py
+raw_data_path: data_blobs/raw/
+raw_cifar_data_path: data_blobs/raw/cifar-10-batches-py
 test_batch_name: test_batch
 
 # Plotting config
@@ -13,7 +14,8 @@ fig_dims: [15, 5]
 image_dim: 32
 n_labels: 10
 n_batches: 5
-classes: ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
+torch_data_batch_size: 4
+classes: ["plane", "car", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
 
 # Logger config
 log_dir_name: logs

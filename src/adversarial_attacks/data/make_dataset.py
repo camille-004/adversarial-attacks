@@ -23,7 +23,9 @@ def unpickle_cifar(batch_id: Union[str, int]) -> Tuple[np.ndarray, List]:
     :param batch_id: Batch ID
     :return: NumPy array of features and list of labels of one CIFAR-10 batch
     """
-    path = os.path.join(Path(__file__).parents[3], config["raw_data_path"])
+    path = os.path.join(
+        Path(__file__).parents[3], config["raw_cifar_data_path"]
+    )
 
     if batch_id == "test":
         file_name = "/test_batch"
