@@ -19,5 +19,3 @@ dependencies:
   - sphinx
   - pyyaml
   - matplotlib
-  - torchvision
-  - torch

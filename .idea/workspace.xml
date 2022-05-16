@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5939752-a558-4552-8011-4b2ffc30d4a8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/batches.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/data_batch_1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/data_batch_2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/data_batch_3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/data_batch_4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/data_batch_5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/readme.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-batches-py/test_batch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/data_blobs/external/cifar-10-python.tar.gz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/load_with_torch.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/adversarial-attacks.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/adversarial-attacks.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.isort.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/.isort.cfg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/environment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/environment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/notebooks/visualize.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/visualize.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/adversarial_attacks/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/adversarial_attacks/config/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/adversarial_attacks/data/make_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/adversarial_attacks/data/make_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/visualization/visualize.py" beforeDir="false" afterPath="$PROJECT_DIR$/visualization/visualize.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,36 +46,14 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/data_blobs/raw" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.load_with_torch">
-    <configuration name="load_with_torch" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="adversarial-attacks" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/adversarial_attacks/data" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/adversarial_attacks/data/load_with_torch.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.visualize">
     <configuration name="make_dataset (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="adversarial-attacks" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -155,7 +122,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.load_with_torch" />
         <item itemvalue="Python.visualize" />
         <item itemvalue="Python.make_dataset (1)" />
         <item itemvalue="Python.make_dataset" />
@@ -173,10 +139,7 @@
       <workItem from="1652592104518" duration="7377000" />
       <workItem from="1652601754262" duration="4759000" />
       <workItem from="1652607086657" duration="1994000" />
-      <workItem from="1652613090974" duration="311000" />
-      <workItem from="1652691461393" duration="970000" />
-      <workItem from="1652736510202" duration="386000" />
-      <workItem from="1652736940087" duration="2055000" />
+      <workItem from="1652613090974" duration="254000" />
     </task>
     <servers />
   </component>
@@ -199,37 +162,36 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="478" y="299" width="724" height="702" key="EditFileWatcherDialog" timestamp="1652736916891">
+    <state x="478" y="299" width="724" height="702" key="EditFileWatcherDialog" timestamp="1652599098550">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="478" y="299" width="724" height="702" key="EditFileWatcherDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1652736916891" />
-    <state width="1632" height="284" key="GridCell.Tab.0.bottom" timestamp="1652739047204">
+    <state x="478" y="299" width="724" height="702" key="EditFileWatcherDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1652599098550" />
+    <state width="1632" height="284" key="GridCell.Tab.0.bottom" timestamp="1652613333388">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1632" height="284" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1652739047204" />
-    <state width="1632" height="284" key="GridCell.Tab.0.center" timestamp="1652739047203">
+    <state width="1632" height="284" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1652613333388" />
+    <state width="1632" height="284" key="GridCell.Tab.0.center" timestamp="1652613333387">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1632" height="284" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1652739047203" />
-    <state width="1632" height="284" key="GridCell.Tab.0.left" timestamp="1652739047203">
+    <state width="1632" height="284" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1652613333387" />
+    <state width="1632" height="284" key="GridCell.Tab.0.left" timestamp="1652613333386">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1632" height="284" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1652739047203" />
-    <state width="1632" height="284" key="GridCell.Tab.0.right" timestamp="1652739047204">
+    <state width="1632" height="284" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1652613333386" />
+    <state width="1632" height="284" key="GridCell.Tab.0.right" timestamp="1652613333387">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1632" height="284" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1652739047204" />
-    <state x="349" y="161" key="SettingsEditor" timestamp="1652736923070">
+    <state width="1632" height="284" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1652613333387" />
+    <state x="349" y="161" key="SettingsEditor" timestamp="1652599102182">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="349" y="161" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1652736923070" />
+    <state x="349" y="161" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1652599102182" />
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1652599181978">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.0.1680.1050@0.0.1680.1050" timestamp="1652599181978" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/adversarial_attacks$load_with_torch.coverage" NAME="load_with_torch Coverage Results" MODIFIED="1652738810726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/adversarial_attacks/data" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$visualize.coverage" NAME="visualize Coverage Results" MODIFIED="1652613333376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/visualization" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$make_dataset.coverage" NAME="make_dataset Coverage Results" MODIFIED="1652595235962" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/data_science_boilerplate/data" />
     <SUITE FILE_PATH="coverage/adversarial_attacks$make_dataset__1_.coverage" NAME="make_dataset (1) Coverage Results" MODIFIED="1652600167464" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/adversarial_attacks/data" />
