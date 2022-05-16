@@ -6,7 +6,10 @@ from typing import List, Tuple, Union
 
 import click
 import numpy as np
+import torch
 from sklearn.model_selection import train_test_split
+from torch.utils import data
+from torchvision import transforms
 
 from src.adversarial_attacks.logger import logger
 from src.adversarial_attacks.utils import config
@@ -23,7 +26,9 @@ def unpickle_cifar(batch_id: Union[str, int]) -> Tuple[np.ndarray, List]:
     :param batch_id: Batch ID
     :return: NumPy array of features and list of labels of one CIFAR-10 batch
     """
-    path = os.path.join(Path(__file__).parents[3], config["raw_data_path"])
+    path = os.path.join(
+        Path(__file__).parents[3], config["raw_batches_data_path"]
+    )
 
     if batch_id == "test":
         file_name = "/test_batch"
@@ -85,7 +90,7 @@ def _preprocess_data(
     return normalize(np.array(_features)), one_hot_encode(_labels)
 
 
-def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
+def load_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
     """
     Load n_batches batches, normalize features, and one-hot-encode labels.
 
@@ -102,7 +107,7 @@ def preprocess_data(n_batches: int) -> Tuple[np.ndarray, np.ndarray]:
         labels.extend(label_batch)
 
     log.info("Normalizing features, one-hot-encoding labels...")
-    return _preprocess_data(np.array(features), np.array(labels))
+    return np.array(features), np.array(labels)
 
 
 def save_data(features: np.ndarray, labels: np.ndarray, path: str) -> None:
@@ -147,7 +152,7 @@ def main(
     log.info("Making final dataset from raw data")
     out_path = os.path.join(config["processed_data_path"], output_file_name)
 
-    features, labels = preprocess_data(n_batches)
+    features, labels = load_data(n_batches)
 
     files = glob.glob(f"{config['processed_data_path']}*")
     for f in files:  # Clear all files in processed directory before saving.
